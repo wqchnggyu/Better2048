@@ -1,4 +1,72 @@
-# Better2048
-⭐ A simple, fast and beautiful 2048 game.
+# Better2048 🎮
 
-[Try now](https://wqchnggyu.github.io/Better2048/single2048.html)
+一个精美、流畅、带有完整动画的 2048 游戏。纯 HTML + CSS + JavaScript 实现，**零依赖、单文件**，双击即玩。
+
+> 🚀 [在线试玩](https://wqchnggyu.github.io/Better2048/single2048.html)
+
+## ✨ 特性
+
+- 🎨 **精美视觉**：渐变背景 + 柔和光斑，渐变标题，经典 2048 配色
+- 🎬 **流畅动画**：
+  - 方块平滑滑动（`transform` 过渡）
+  - 合并时「弹出」缩放动画（pop）
+  - 新方块「出现」缩放动画（appear）
+  - 合并时飘出金色 `+分数` 文字
+  - 分数数字跳动
+  - 拼出 2048 时方块发光
+- 🏆 **最高记录**：使用 `localStorage` 持久化保存，刷新 / 关闭后依然保留，破纪录时弹出「新纪录」徽章
+- ↩️ **撤回一步**：随时回退上一步操作
+- 📱 **自适应**：桌面与手机均可完整显示，支持触屏滑动
+- ⌨️ **双操作方式**：方向键 / `WASD` / 触屏滑动
+
+## 🕹️ 操作方式
+
+| 操作 | 说明 |
+| --- | --- |
+| `←` `↑` `↓` `→` | 方向键移动方块 |
+| `W` `A` `S` `D` | 键盘移动方块 |
+| 滑动屏幕 | 触屏设备上滑动移动 |
+| 🔄 新游戏 | 重新开始 |
+| ↩ 撤回 | 回退上一步 |
+
+## 🚀 如何运行
+
+无需安装任何依赖，直接用浏览器打开 `single2048.html` 即可：
+
+```bash
+# 方法一：直接双击文件
+single2048.html
+
+# 方法二：用默认浏览器打开
+start single2048.html        # Windows
+open single2048.html         # macOS
+xdg-open single2048.html     # Linux
+```
+
+## 📁 项目结构
+
+```
+Better2048/
+├── single2048.html   # 游戏主体（HTML + CSS + JavaScript 全部内联）
+└── README.md         # 项目说明
+```
+
+## 🎯 游戏规则
+
+1. 使用方向键 / 滑动将相同数字的方块**合并**为一个方块，数值翻倍
+2. 每次移动后，棋盘会随机生成一个 `2`（90%）或 `4`（10%）的新方块
+3. 目标：拼出 **2048** 方块，甚至更高
+4. 当棋盘被填满且无法再合并时，游戏结束
+
+## 🛠️ 技术实现
+
+- **HTML5 + CSS3**：CSS Grid 布局棋盘，CSS 动画（`keyframes`）实现缩放 / 弹跳 / 漂浮特效
+- **原生 JavaScript**：无任何第三方库
+  - 方块用绝对定位 + `transform: translate()` 实现平滑滑动
+  - 合并逻辑按行 / 列遍历，确保每个方块每次移动最多合并一次
+  - `localStorage` 存储最高分
+  - 触屏 `touchstart` / `touchend` 手势识别滑动方向
+
+## 📄 License
+
+[MIT](LICENSE) — 自由使用、修改与分发。
